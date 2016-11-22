@@ -13,7 +13,7 @@ class TreeNode {
 private:
 	string data;//node data
 	TreeNode *child, *sibling;//child link and sibling link
-							  //construct
+	//construct
 	TreeNode(string data) {
 		this->data = data;
 		child = NULL;
@@ -31,7 +31,7 @@ private:
 class GeneralTree {
 public:
 	TreeNode *root; //root link
-					//contruct
+	//contruct
 	GeneralTree(const std::string& str) {
 		string temp = str;//temp of string str
 		string dTemp = getNext(temp);//get the data of root
@@ -40,10 +40,10 @@ public:
 		deque<TreeNode*> parentStack;//stack for parent node
 		TreeNode *nowNode = root;//pointer to the node now
 
-								 //traverse the string temp to build the tree
+		//traverse the string temp to build the tree
 		while (!temp.empty()) {
 			dTemp = getNext(temp);//get the symbol or the data
-								  //get symbol "(", then enter to the child node
+			//get symbol "(", then enter to the child node
 			if (dTemp == "(") {
 				parentStack.push_back(nowNode);
 				dTemp = getNext(temp);
@@ -105,11 +105,11 @@ public:
 		deque<TreeNode*> parentStack;//stack for parent node
 		TreeNode *nowNode = root;//pointer to the node now
 
-								 //traverse the tree
+		//traverse the tree
 		do
 		{
 			cout << nowNode->data << " ";//print the data
-										 //enter to the child
+			//enter to the child
 			if (nowNode->child != NULL) {
 				parentStack.push_back(nowNode);
 				nowNode = nowNode->child;
@@ -162,7 +162,7 @@ public:
 		deque<TreeNode*> parentStack;//stack for parent node
 		TreeNode *nowNode = root;//pointer to the node now
 
-								 //traverse the tree
+		//traverse the tree
 		do
 		{
 
@@ -174,7 +174,7 @@ public:
 			}
 			cout << nowNode->data << " ";//print the data
 
-										 //enter to the sibling
+			//enter to the sibling
 			if (nowNode->sibling != NULL) {
 				nowNode = nowNode->sibling;
 				continue;
@@ -208,7 +208,7 @@ public:
 		parentStack.push_back(nowNode);//push root to stack
 		cout << nowNode->data << " ";//then print it
 
-									 //traverse the tree
+		//traverse the tree
 		while (!parentStack.empty()) {
 			nowNode = parentStack.front();//first in first out order
 			parentStack.pop_front();
